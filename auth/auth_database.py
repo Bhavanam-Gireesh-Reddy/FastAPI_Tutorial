@@ -18,7 +18,7 @@ safe_password = urllib.parse.quote_plus(MYSQL_PASSWORD)
 DATABASE_URL = f"mysql+pymysql://{MYSQL_USER}:{safe_password}@{MYSQL_HOST}:{MYSQL_PORT}/{MYSQL_DATABASE}"
 
 ##Connection
-engine = create_engine(DATABASE_URL, echo = True)
+engine = create_engine(DATABASE_URL, echo = True, pool_pre_ping=True)
 
 ##Session
 SessionLocal = sessionmaker(autocommit = False, autoflush = False, bind = engine)

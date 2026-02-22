@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Depends, HTTPException, status
 from sqlalchemy.orm import Session
-import models, schemas, utils
-from auth_database import get_db
+from auth import models, schemas, utils
+from auth.auth_database import get_db
 from dotenv import load_dotenv
 import os
 from jose import jwt, JWTError
